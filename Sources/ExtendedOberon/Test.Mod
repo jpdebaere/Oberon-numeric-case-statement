@@ -51,7 +51,7 @@ MODULE Test;
   END CaseChar;
 
   PROCEDURE CaseType*;
-    VAR S: Texts.Scanner; i, j: INTEGER;
+    VAR S: Texts.Scanner; i, j: INTEGER; pp: P;
   BEGIN Texts.OpenScanner(S, Oberon.Par.text, Oberon.Par.pos); Texts.Scan(S);
     IF S.class = Texts.Int THEN i := S.i; j := 0; p := q;
       IF i = 0 THEN p := p0
@@ -59,7 +59,8 @@ MODULE Test;
       ELSIF i = 2 THEN p := p2
       ELSIF i = 3 THEN p := p3
       END ;
-      CASE p OF
+      pp := p;
+      CASE pp OF
          P0: j := 22
        | P1: j := 33
        | P3: j := 55  (*P3 is an extension of P2, not P -> test P3 first*)
